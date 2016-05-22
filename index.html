@@ -283,15 +283,12 @@
 
       
         
-          
-            <p>eclipse 调试时出现!MESSAGE Could not find bundle: org.eclipse.equinox.console解决办法<br>eclipse 调试时出现!MESSAGE Could not find bundle: org.eclipse.equinox.console解决办法</p>
-<p>在用ECLIPSE调试OSGI时出现异常错误无法开打OSGI&gt;<br>!SESSION 2013-05-13 22:50:24.171 ———————————————–<br>eclipse.buildId=unknown<br>java.version=1.7.0_21<br>java.vendor=Oracle Corporation<br>BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=zh_CN<br>Command-line arguments:  -dev file:C:/Documents and Settings/Administrator/Documents/workspace-sts-3.2.0.RELEASE/.metadata/.plugins/org.eclipse.pde.core/New_configuration/dev.properties -os win32 -ws win32 -arch x86 -consoleLog -console</p>
-<p>!ENTRY org.eclipse.osgi 4 0 2013-05-13 22:50:25.000<br>!MESSAGE Could not find bundle: org.eclipse.equinox.console<br>!STACK 0<br>org.osgi.framework.BundleException: Could not find bundle: org.eclipse.equinox.console<br>    at org.eclipse.osgi.framework.internal.core.ConsoleManager.checkForConsoleBundle(ConsoleManager.java:211)<br>    at org.eclipse.core.runtime.adaptor.EclipseStarter.startup(EclipseStarter.java:297)<br>    at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:176)<br>    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br>    at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)<br>    at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)<br>    at java.lang.reflect.Method.invoke(Unknown Source)<br>    at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:629)<br>    at org.eclipse.equinox.launcher.Main.basicRun(Main.java:584)<br>    at org.eclipse.equinox.launcher.Main.run(Main.java:1438)<br>    at org.eclipse.equinox.launcher.Main.main(Main.java:1414)</p>
-<p>但是选种org.eclipse.equinox.console时还是会报错,那时因为OSGI组建之间存在依赖关系,要使用 org.eclipse.equinox.console必须要有它需要依赖的OSGI组建,因此在调试时,除了选择自己编写的OSGI组建还要选择<br>  org.apache.felix.gogo.command<br>  org.apache.felix.gogo.runtime<br>  org.apache.felix.gogo.shell<br>  org.eclipse.equinox.console</p>
-<p>问题解决成功出现OSGI&gt;<br>osgi&gt; ss<br>“Framework is launched.”</p>
-<p>id    State       Bundle<br>0    ACTIVE      org.eclipse.osgi_3.8.2.v20130124-134944<br>1    ACTIVE      BundleBase_1.0.0.qualifier<br>2    ACTIVE      BundleCnService_1.0.0.qualifier<br>3    ACTIVE      BundleEnService_1.0.0.qualifier<br>8    ACTIVE      org.apache.felix.gogo.runtime_0.8.0.v201108120515<br>9    ACTIVE      org.apache.felix.gogo.shell_0.8.0.v201110170705<br>10    ACTIVE      org.apache.felix.gogo.command_0.8.0.v201108120515<br>11    ACTIVE      org.eclipse.equinox.console_1.0.0.v20120522-1841<br>osgi&gt; </p>
-
-          
+          <p>eclipse 调试时出现!MESSAGE Could not find bundle: org.eclipse.equinox.console解决办法<br>eclipse 调试时出现!MESSAGE Could not find bundle: org.eclipse.equinox.console解决办法<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/22/eclipse-调试时出现-MESSAGE-Could-not-find-bundle-org-eclipse-equinox-console解决方法/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
