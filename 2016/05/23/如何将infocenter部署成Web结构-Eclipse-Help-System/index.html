@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=1.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="infocenter, eclipse help," />
+  <meta name="keywords" content="Hexo, Yespon" />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="You can enable users to access the help system over the Internet or an intranet, by installing the help system web application on a web server. Users open a URL in the web browser, which results in he">
+<meta name="description" content="如何将infocenter部署成Web结构以一个例子说明：要求：eclipse版本：3.4或更高版本">
 <meta property="og:type" content="article">
-<meta property="og:title" content="infocenter setup">
-<meta property="og:url" content="http://www.yespon.com/2016/05/23/infocenter-setup/index.html">
+<meta property="og:title" content="如何将infocenter部署成Web结构(Eclipse Help System)">
+<meta property="og:url" content="http://www.yespon.com/2016/05/23/如何将infocenter部署成Web结构-Eclipse-Help-System/index.html">
 <meta property="og:site_name" content="There is a record of the mind and the soul.">
-<meta property="og:description" content="You can enable users to access the help system over the Internet or an intranet, by installing the help system web application on a web server. Users open a URL in the web browser, which results in he">
-<meta property="og:updated_time" content="2016-05-22T16:25:54.019Z">
+<meta property="og:description" content="如何将infocenter部署成Web结构以一个例子说明：要求：eclipse版本：3.4或更高版本">
+<meta property="og:updated_time" content="2016-05-22T16:27:44.901Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="infocenter setup">
-<meta name="twitter:description" content="You can enable users to access the help system over the Internet or an intranet, by installing the help system web application on a web server. Users open a URL in the web browser, which results in he">
+<meta name="twitter:title" content="如何将infocenter部署成Web结构(Eclipse Help System)">
+<meta name="twitter:description" content="如何将infocenter部署成Web结构以一个例子说明：要求：eclipse版本：3.4或更高版本">
 
 
 
@@ -111,7 +111,7 @@
   };
 </script>
 
-  <title> infocenter setup | There is a record of the mind and the soul. </title>
+  <title> 如何将infocenter部署成Web结构(Eclipse Help System) | There is a record of the mind and the soul. </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -231,7 +231,7 @@
             
             
               
-                infocenter setup
+                如何将infocenter部署成Web结构(Eclipse Help System)
               
             
           </h1>
@@ -243,7 +243,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-05-23T00:23:57+08:00" content="2016-05-23">
+            <time itemprop="dateCreated" datetime="2016-05-23T00:26:36+08:00" content="2016-05-23">
               2016-05-23
             </time>
           </span>
@@ -254,8 +254,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/23/infocenter-setup/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/23/infocenter-setup/" itemprop="commentsCount"></span>
+                <a href="/2016/05/23/如何将infocenter部署成Web结构-Eclipse-Help-System/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/23/如何将infocenter部署成Web结构-Eclipse-Help-System/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -283,29 +283,18 @@
       
 
       
-        <p>You can enable users to access the help system over the Internet or an intranet, by installing the help system web application on a web server. Users open a URL in the web browser, which results in help system displayed. The infocenter help system can be also used for client applications and for web applications, that wish to have their help accessed remotely. All features except infopops and active help are supported.</p>
+        <p>如何将infocenter部署成Web结构<br>以一个例子说明：<br>要求：eclipse版本：3.4或更高版本</p>
 <a id="more"></a>
-<p>The instructions provided go over installing and configuring the infocenter application.  Steps are provided for IBM WebSphere Application Server 4.0.3 Advanced Edition Single Server, and Apache Tomcat 4.0.4 on Windows.  Other servers should be similar.</p>
-<ol>
-<li><p>Install Eclipse<br>Download Eclipse SDK or Platform Runtime Binary from <a href="http://www.eclipse.org/downloads/" target="_blank" rel="external">http://www.eclipse.org/downloads/</a>. Unzip Eclipse on a system. The directory called “eclipse” will be created. Documentation contributed by plugins in Eclipse installation will be made available for remote browsing.  Let us assume you unzipped Eclipse to “d:\”.</p>
-</li>
-<li><p>Download Infocenter<br>Download Eclipse Infocenter from the same page you downloaded the eclipse driver in Step 1. Create a directory “infocenter” on your system and unzip the infocenter driver. Let us assume that this directory is “d:\infocenter\”. The directory should contain a web module (.WAR file) and the legal documents.</p>
-</li>
-<li><p>Register URL handlers with the server<br>WebSphere Application Server<br>Log into the Administrative Console, expand Nodes -&gt; HOSTNAME -&gt; Application Servers -&gt; Default Server -&gt; Process Definition, select “JVM Settings” in the tree.  On JVM Settings form, type “D:\eclipse\plugins\org.eclipse.help.webapp_2.0.1\eclipseurl.jar” in the Classpath field.  Click OK button.<br>Tomcat<br>Edit TOMCAT_HOME\bin\setclasspath.bat file and after the line:<br>set CLASSPATH=%JAVA_HOME%\lib\tools.jar<br>insert the line:<br>set CLASSPATH=%CLASSPATH%;D:\eclipse\plugins\org.eclipse.help.webapp_2.0.1\eclipseurl.jar</p>
-</li>
-<li><p>Point Infocenter application to the Eclipse installation<br>WebSphere Application Server<br>Open the WAR file in d:\infocenter\” using Application Assembly Tool<br>Select Context Parameters in the tree<br>Set the value of ECLIPSE_HOME parameter to D:\eclipse<br>click Apply, and save the application archive.<br>Tomcat<br>Create a help subdirectory, d:\infocenter\help\<br>Unjar the WAR file from d:\infocenter into the “help” subdirectory. directory<br>In the file WEB-INF/web.xml replace lines</p>
-<pre><code>&lt;param-name&gt;ECLIPSE_HOME&lt;/param-name&gt;
-&lt;param-value&gt;&lt;/param-value&gt;
-</code></pre><p>with</p>
-<pre><code>&lt;param-name&gt;ECLIPSE_HOME&lt;/param-name&gt;
-&lt;param-value&gt;D:/eclipse&lt;/param-value&gt;
-</code></pre></li>
-<li><p>Deploy the application on the server<br>WebSphere Application Server<br>In WebSphere Administrative Console, expand Nodes -&gt; HOST_NAME, select Enterprise Applications in the tree, click Install.<br>Browse the Path to select location of the downloaded WAR file<br>Edit the following two fields as follows:<br>Application Name : Eclipse Infocenter<br>Context Root : help<br>Leave the bottom section of the install from blank.<br>Click Next, Next, Finish.<br>Click Save in the Console header, click OK.<br>Expand Nodes -&gt; HOST_NAME -&gt; Application Servers, select Default Server.<br>Click Web Server Plug-In Configuration link, click Generate.<br>Restart the server.<br>Tomcat<br>Copy the directory created in step 4 (d:\infocenter\help) to D:\jakarta-tomcat-4.0.4\webapps.   If you use jdk1.4 to run Tomcat, you need to delete file D:\jakarta-tomcat-4.0.4\common\lib\xerces.jar<br>Restart the server.</p>
-</li>
-<li><p>Point a web browser to the path of the web application.<br>WebSphere<br>Open the following URL <a href="http://localhost/help/" target="_blank" rel="external">http://localhost/help/</a> or <a href="http://localhost:9080/help/" target="_blank" rel="external">http://localhost:9080/help/</a>.<br>Tomcat<br>Open the following URL <a href="http://localhost:8080/help/" target="_blank" rel="external">http://localhost:8080/help/</a>.</p>
-</li>
-</ol>
-<p>转自：[<a href="http://archive.eclipse.org/eclipse/downloads/drops/R-2.0.1-200208291828/doc/infocenter.html]http://archive.eclipse.org/eclipse/downloads/drops/R-2.0.1-200208291828/doc/infocenter.html" target="_blank" rel="external">http://archive.eclipse.org/eclipse/downloads/drops/R-2.0.1-200208291828/doc/infocenter.html]http://archive.eclipse.org/eclipse/downloads/drops/R-2.0.1-200208291828/doc/infocenter.html</a></p>
+<p>1.从www.eclipse.org下载eclipse,并解压,例如: D:/InfoCenter/eclipse</p>
+<p>2.在D:/InfoCenter/eclipse/plugins下面找到这个文件org.eclipse.help.webapp_3.3.101.M20080805_34x.jar,将它拷贝到一个临时目录(D:/temp)中,并解压.出现这样一个目录D:/temp/org.eclipse.help.webapp_3.3.101.M20080805_34x.进入这个目录:D:/temp/org.eclipse.help.webapp_3.3.101.M20080805_34x/web-archive有两个目录help和org.eclipse.help.infocenter-feature</p>
+<p>3.你可以将org.eclipse.help.infocenter-feature导入eclipse工程中,使用File–&gt;import—&gt;existing Project</p>
+<p>4.Export org.eclipse.help.infocenter-feature as a deployable feature and set the destination to be web-archive/help/WEB-INF/eclipse in the area where org.eclipse.help.webapp.<version>.jar was unzipped.</version></p>
+<p>5.向D:/temp/org.eclipse.help.webapp_3.3.101.M20080805_34x/web-archive/help/WEB-INF/eclipse/plugins添加一些文档插件。</p>
+<p>6.从<a href="http://download.eclipse.org/eclipse/equinox/站点下载org.eclipse.equinox.http.servletbridge_" target="_blank" rel="external">http://download.eclipse.org/eclipse/equinox/站点下载org.eclipse.equinox.http.servletbridge_</a><version>.jar 和 org.eclipse.equinox.servletbridge_<version>.jar两个文件。我下载是：eclipse-equinox-3.4.zip，注意此版本要和eclipse版本一致。</version></version></p>
+<p>7.eclipse-equinox-3.4.zip文件，在eclipse/plugins/下面找个org.eclipse.equinox.servletbridge_1.0.100.v20080427-0830.jar和org.eclipse.equinox.http.servletbridge_1.0.0.v20080427-0830.jar文件.解压org.eclipse.equinox.servletbridge_1.0.100.v20080427-0830.jar文件,将其中的servletbridge.jar拷贝到.D:/temp/org.eclipse.help.webapp_3.3.101.M20080805_34x/web-archive/help/WEB-INF/lib下面.将org.eclipse.equinox.http.servletbridge_1.0.0.v20080427-0830.jar这个文件拷贝到D:/temp/org.eclipse.help.webapp_3.3.101.M20080805_34x/web-archive/help/WEB-INF/eclipse/plugins下面</p>
+<p>8.此时你可以以help目录为准创建一个war包，或者直接将help文件夹拷贝到tomcate下面。启动tomcate，进入帮助系统，查看结果。</p>
+<p>注意：<br>Notes: If you look in the config.ini in the help.war file under directory help/WEB_INF/eclipse/configuration you will notice the<br>line eclipse.product=org.eclipse.productname. If your product has help system customizations in a product plugin you can<br>activate these by changing this line to point to your product plugin.</p>
+<p>博文来源：<a href="http://happay99.blog.hexun.com/24985320_d.html" target="_blank" rel="external">http://happay99.blog.hexun.com/24985320_d.html</a></p>
 
       
     </div>
@@ -325,28 +314,18 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/infocenter-eclipse-help/" rel="tag">#infocenter, eclipse help</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/23/MQ-Telemetry-Transport-MQTT-V3-1-Protocol-Specification/" rel="next" title="MQ Telemetry Transport (MQTT) V3.1 Protocol Specification">
-                <i class="fa fa-chevron-left"></i> MQ Telemetry Transport (MQTT) V3.1 Protocol Specification
+              <a href="/2016/05/23/infocenter-setup/" rel="next" title="infocenter setup">
+                <i class="fa fa-chevron-left"></i> infocenter setup
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/23/如何将infocenter部署成Web结构-Eclipse-Help-System/" rel="prev" title="如何将infocenter部署成Web结构(Eclipse Help System)">
-                如何将infocenter部署成Web结构(Eclipse Help System) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -372,8 +351,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/23/infocenter-setup/"
-           data-title="infocenter setup" data-url="http://www.yespon.com/2016/05/23/infocenter-setup/">
+      <div class="ds-thread" data-thread-key="2016/05/23/如何将infocenter部署成Web结构-Eclipse-Help-System/"
+           data-title="如何将infocenter部署成Web结构(Eclipse Help System)" data-url="http://www.yespon.com/2016/05/23/如何将infocenter部署成Web结构-Eclipse-Help-System/">
       </div>
     
   </div>
