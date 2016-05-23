@@ -84,16 +84,40 @@
 
 
 
-<meta name="description" content="IBM MessageSight 是一种用于机器到机器和移动环境的消息设备，对 MQTT V3.1 消息协议提供了全面支持。本文将介绍如何结合使用开源 Paho MQTT Eclipse 项目和成对的高度可用 (HA) 的 IBM MessageSight 设备来提供弹性消息解决方案。">
+<meta name="description" content="目录
+定义
+OSGi 框架 模块层  * Bundle  * 如何定义Bundle
+ 生命周期层  * 重要接口
+ 服务层   发布服务
+   发现和绑定服务
+参考资料
+
+定义OSGi(Open Service Gateway Initiative)技术是面向Java的动态模型系统。这个框架实现了一个优雅、完整和动态地组价模型。应用程序（称为bundle）无序重新引导可以被远程安装、启动、升级和卸">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用 IBM MessageSight 和 MQTT 客户端应用程序实现高可用性">
-<meta property="og:url" content="http://www.yespon.com/2016/05/23/使用-IBM-MessageSight-和-MQTT-客户端应用程序实现高可用性/index.html">
+<meta property="og:title" content="OSGi 基本原理">
+<meta property="og:url" content="http://www.yespon.com/2016/05/23/OSGi-基本原理/index.html">
 <meta property="og:site_name" content="There is a record of the mind and the soul.">
-<meta property="og:description" content="IBM MessageSight 是一种用于机器到机器和移动环境的消息设备，对 MQTT V3.1 消息协议提供了全面支持。本文将介绍如何结合使用开源 Paho MQTT Eclipse 项目和成对的高度可用 (HA) 的 IBM MessageSight 设备来提供弹性消息解决方案。">
-<meta property="og:updated_time" content="2016-05-22T16:20:43.911Z">
+<meta property="og:description" content="目录
+定义
+OSGi 框架 模块层  * Bundle  * 如何定义Bundle
+ 生命周期层  * 重要接口
+ 服务层   发布服务
+   发现和绑定服务
+参考资料
+
+定义OSGi(Open Service Gateway Initiative)技术是面向Java的动态模型系统。这个框架实现了一个优雅、完整和动态地组价模型。应用程序（称为bundle）无序重新引导可以被远程安装、启动、升级和卸">
+<meta property="og:updated_time" content="2016-05-23T13:56:52.019Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用 IBM MessageSight 和 MQTT 客户端应用程序实现高可用性">
-<meta name="twitter:description" content="IBM MessageSight 是一种用于机器到机器和移动环境的消息设备，对 MQTT V3.1 消息协议提供了全面支持。本文将介绍如何结合使用开源 Paho MQTT Eclipse 项目和成对的高度可用 (HA) 的 IBM MessageSight 设备来提供弹性消息解决方案。">
+<meta name="twitter:title" content="OSGi 基本原理">
+<meta name="twitter:description" content="目录
+定义
+OSGi 框架 模块层  * Bundle  * 如何定义Bundle
+ 生命周期层  * 重要接口
+ 服务层   发布服务
+   发现和绑定服务
+参考资料
+
+定义OSGi(Open Service Gateway Initiative)技术是面向Java的动态模型系统。这个框架实现了一个优雅、完整和动态地组价模型。应用程序（称为bundle）无序重新引导可以被远程安装、启动、升级和卸">
 
 
 
@@ -111,7 +135,7 @@
   };
 </script>
 
-  <title> 使用 IBM MessageSight 和 MQTT 客户端应用程序实现高可用性 | There is a record of the mind and the soul. </title>
+  <title> OSGi 基本原理 | There is a record of the mind and the soul. </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -231,7 +255,7 @@
             
             
               
-                使用 IBM MessageSight 和 MQTT 客户端应用程序实现高可用性
+                OSGi 基本原理
               
             
           </h1>
@@ -243,7 +267,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-05-23T00:17:00+08:00" content="2016-05-23">
+            <time itemprop="dateCreated" datetime="2016-05-23T21:42:36+08:00" content="2016-05-23">
               2016-05-23
             </time>
           </span>
@@ -254,8 +278,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/23/使用-IBM-MessageSight-和-MQTT-客户端应用程序实现高可用性/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/23/使用-IBM-MessageSight-和-MQTT-客户端应用程序实现高可用性/" itemprop="commentsCount"></span>
+                <a href="/2016/05/23/OSGi-基本原理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/23/OSGi-基本原理/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -283,9 +307,45 @@
       
 
       
-        <p>IBM MessageSight 是一种用于机器到机器和移动环境的消息设备，对 MQTT V3.1 消息协议提供了全面支持。本文将介绍如何结合使用开源 Paho MQTT Eclipse 项目和成对的高度可用 (HA) 的 IBM MessageSight 设备来提供弹性消息解决方案。</p>
-<a id="more"></a>
-<p><a href="http://www.ibm.com/developerworks/cn/websphere/library/techarticles/1406_bakowski/1406_bakowski.html" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/websphere/library/techarticles/1406_bakowski/1406_bakowski.html</a></p>
+        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li>定义</li>
+<li>OSGi 框架<br><strong> 模块层<br>  *</strong> Bundle<br>  <strong>* 如何定义Bundle
+</strong> 生命周期层<br>  <strong>* 重要接口
+</strong> 服务层<br>  <strong><em> 发布服务
+  </em></strong> 发现和绑定服务</li>
+<li>参考资料</li>
+</ul>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>OSGi(Open Service Gateway Initiative)技术是面向Java的动态模型系统。<br>这个框架实现了一个优雅、完整和动态地组价模型。应用程序（称为bundle）无序重新引导可以被远程安装、启动、升级和卸载。</p>
+<p>OSGi服务平台提供在多种网络设备上无需重启的动态改变构造的功能。<br>为了最小化耦合度和促使这些耦合度可管理，OSGi技术提供一种面向服务的架构，它能使这些组件动态地发现对方。</p>
+<p>OSGi联盟已经开发了例如像HTTP服务器、配置、日志、安全、用户管理、XML等很多公共功能标准组件接口。这些组件的兼容性插件实现可以从进行了不同优化和使用代价的不同计算机服务提供商得到。然而，服务接口能够基于专有权基础上开发。</p>
+<p>OSGi的主要职责就是为了让开发者能够创建动态化、模块化的Java系统。</p>
+<h2 id="OSGi框架"><a href="#OSGi框架" class="headerlink" title="OSGi框架"></a>OSGi框架</h2><p>OSGi框架从概念上可以分为三层：模块层、生命周期层和服务层。</p>
+<p>Module Layer：模块层主要涉及包及共享的代码；<br>Lifecycle Layer：生命周期层主要涉及Bundle的运行时生命周期管理；<br>Service Layer：服务层主要涉及模块之间的交互和通信。<br>[img]</p>
+<h3 id="模块层"><a href="#模块层" class="headerlink" title="模块层"></a>模块层</h3><p>模块层是 OSGi 框架中最基础的部分。</p>
+<p>OSGi 的模块化，是通过为 Jar 包添加metadata 来定义哪些类该暴露，哪些类该隐藏，其控制单元叫做 Bundle（jar 包）。 </p>
+<ul>
+<li>Bundle<br>首先，必须先了解一个基本概念——什么是Bundle？</li>
+</ul>
+<p>什么是 Bundle ?<br>bundle 是以 jar 包形式存在的一个模块化物理单元，里面包含了代码，资源文件和元数据（metadata），并且jar包的物理边界也同时是运行时逻辑模块的封装边界。</p>
+<ul>
+<li>如何定义 Bundle<br>Bundle 是 OSGi 中的基本组件，其表现形式仍然为 Java 概念中传统的 Jar 包。<br>通过 META-INF 目录下的 MANIFEST.MF 文件对其予以进一步的定义。<br>通常一个 MANIFEST.MF 文件的内容如下：</li>
+</ul>
+<hr>
+<p>Manifest-Version: 1.0<br>Bundle-ManifestVersion: 2<br>Bundle-Name: Util<br>Bundle-SymbolicName: com.ibm.director.la.util<br>Bundle-Version: 1.0.0<br>Bundle-RequiredExecutionEnvironment: J2SE-1.5<br>Import-Package: org.osgi.framework;version=”1.3.0”<br>Export-Package: com.ibm.director.la.util;uses:=”org.osgi.framework”</p>
+<h2 id="Bundle-ClassPath-lib-junit-jar"><a href="#Bundle-ClassPath-lib-junit-jar" class="headerlink" title="Bundle-ClassPath: lib/junit.jar"></a>Bundle-ClassPath: lib/junit.jar</h2><p>MANIFEST.MF 文件存储的实际上是 Bundle 的元数据。</p>
+<p>元数据的内容可以精确的定义 Bundle 的各种特征，同时能更好的对 Bundle 进行标识同时帮助用户对Bundle进行理解。</p>
+<h3 id="生命周期层"><a href="#生命周期层" class="headerlink" title="生命周期层"></a>生命周期层</h3><p>生命周期层在OSGi框架中属于模块层上面的一层，它的运作是建立在模块层的功能之上的。<br>生命周期层的主要功能是控制动态安装、开启、关闭、更新和卸载的bundles。<br>生命周期层让你能够从外部管理应用或者建立能够自我管理的应用（或者两者的结合），并且给了应用本身很大的动态性。 </p>
+<p>前面已经了解了 Bundle 的概念和作用。但是要真正使用 Bundle，需要使用生命周期层的API，来和OSGi框架的生命周期层进行交互。</p>
+<p>在标准的Java编程中，可以通过将jar包放到classpath中来使用它。而bundle则不是这样，Bundle只有在被安装（install）到一个OSGi框架的运行实例中才能用起来。并且OSGi框架支持对这些bundle完整的生命周期管理，并且支持这些管理操作在应用执行完成。<br>下图为 Bundle 生命周期的状态转移图：<br>[img]</p>
+<ul>
+<li>重要接口<br>生命周期层的API主要是由以下三个核心接口来组成的：BundleActivator，BundleContext 和 Bundle。<br>BundleActivator：让你能够捕捉bundle的start和stop事件，并对这两个事件作出自定义的反应。<br>BundleContext：一个bundle在框架中的执行时上下文，这个上下文提供了和框架进行交互的方法。<br>Bundle：在逻辑上表示了一个bundle，OSGi环境中的一个物理bundle对应了一个bundle对象。该对象中包含了bundle的基本信息和bundle生命周期的控制接口。</li>
+</ul>
+<h3 id="服务层"><a href="#服务层" class="headerlink" title="服务层"></a>服务层</h3><p>一个OSGi 服务就是注册到 OSGi 框架中的一个 Java 对象。注册的时候可以设置这个 Service 的属性。而在获取 Service的时候可以根据属性进行过滤。</p>
+<p>Bundle 可以通过 Bundle的上下文去注册Service或去查询Service。</p>
+<p>一个提供服务的bundle可以发布POJO作为服务的实体；一个使用服务的bundle可以通过这个注册表找到和绑定服务。</p>
+<ul>
+<li>发布服务</li>
+</ul>
 
       
     </div>
@@ -310,17 +370,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/22/eclipse-调试时出现-MESSAGE-Could-not-find-bundle-org-eclipse-equinox-console解决方法/" rel="next" title="eclipse 调试时出现 MESSAGE Could not find bundle: org.eclipse.equinox.console解决方法">
-                <i class="fa fa-chevron-left"></i> eclipse 调试时出现 MESSAGE Could not find bundle: org.eclipse.equinox.console解决方法
+              <a href="/2016/05/23/如何将infocenter部署成Web结构-Eclipse-Help-System/" rel="next" title="如何将infocenter部署成Web结构(Eclipse Help System)">
+                <i class="fa fa-chevron-left"></i> 如何将infocenter部署成Web结构(Eclipse Help System)
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/23/Eclipse-documentation-Archived-Release/" rel="prev" title="Eclipse documentation - Archived Release">
-                Eclipse documentation - Archived Release <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -346,8 +402,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/23/使用-IBM-MessageSight-和-MQTT-客户端应用程序实现高可用性/"
-           data-title="使用 IBM MessageSight 和 MQTT 客户端应用程序实现高可用性" data-url="http://www.yespon.com/2016/05/23/使用-IBM-MessageSight-和-MQTT-客户端应用程序实现高可用性/">
+      <div class="ds-thread" data-thread-key="2016/05/23/OSGi-基本原理/"
+           data-title="OSGi 基本原理" data-url="http://www.yespon.com/2016/05/23/OSGi-基本原理/">
       </div>
     
   </div>
@@ -431,7 +487,7 @@
               
             
             
-              <p class="post-toc-empty">Dieser Artikel hat kein Inhaltsverzeichnis</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSGi框架"><span class="nav-number">3.</span> <span class="nav-text">OSGi框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模块层"><span class="nav-number">3.1.</span> <span class="nav-text">模块层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bundle-ClassPath-lib-junit-jar"><span class="nav-number">4.</span> <span class="nav-text">Bundle-ClassPath: lib/junit.jar</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#生命周期层"><span class="nav-number">4.1.</span> <span class="nav-text">生命周期层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务层"><span class="nav-number">4.2.</span> <span class="nav-text">服务层</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
