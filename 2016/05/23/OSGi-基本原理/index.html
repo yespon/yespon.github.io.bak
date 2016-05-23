@@ -106,7 +106,7 @@ OSGi 框架 模块层  * Bundle  * 如何定义Bundle
 参考资料
 
 定义OSGi(Open Service Gateway Initiative)技术是面向Java的动态模型系统。这个框架实现了一个优雅、完整和动态地组价模型。应用程序（称为bundle）无序重新引导可以被远程安装、启动、升级和卸">
-<meta property="og:updated_time" content="2016-05-23T13:56:52.019Z">
+<meta property="og:updated_time" content="2016-05-23T13:59:16.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OSGi 基本原理">
 <meta name="twitter:description" content="目录
@@ -193,7 +193,7 @@ OSGi 框架 模块层  * Bundle  * 如何定义Bundle
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -203,7 +203,7 @@ OSGi 框架 模块层  * Bundle  * 如何定义Bundle
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -266,7 +266,7 @@ OSGi 框架 模块层  * Bundle  * 如何定义Bundle
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-05-23T21:42:36+08:00" content="2016-05-23">
               2016-05-23
             </time>
@@ -331,8 +331,9 @@ OSGi 框架 模块层  * Bundle  * 如何定义Bundle
 <li>如何定义 Bundle<br>Bundle 是 OSGi 中的基本组件，其表现形式仍然为 Java 概念中传统的 Jar 包。<br>通过 META-INF 目录下的 MANIFEST.MF 文件对其予以进一步的定义。<br>通常一个 MANIFEST.MF 文件的内容如下：</li>
 </ul>
 <hr>
-<p>Manifest-Version: 1.0<br>Bundle-ManifestVersion: 2<br>Bundle-Name: Util<br>Bundle-SymbolicName: com.ibm.director.la.util<br>Bundle-Version: 1.0.0<br>Bundle-RequiredExecutionEnvironment: J2SE-1.5<br>Import-Package: org.osgi.framework;version=”1.3.0”<br>Export-Package: com.ibm.director.la.util;uses:=”org.osgi.framework”</p>
-<h2 id="Bundle-ClassPath-lib-junit-jar"><a href="#Bundle-ClassPath-lib-junit-jar" class="headerlink" title="Bundle-ClassPath: lib/junit.jar"></a>Bundle-ClassPath: lib/junit.jar</h2><p>MANIFEST.MF 文件存储的实际上是 Bundle 的元数据。</p>
+<p>Manifest-Version: 1.0<br>Bundle-ManifestVersion: 2<br>Bundle-Name: Util<br>Bundle-SymbolicName: com.ibm.director.la.util<br>Bundle-Version: 1.0.0<br>Bundle-RequiredExecutionEnvironment: J2SE-1.5<br>Import-Package: org.osgi.framework;version=”1.3.0”<br>Export-Package: com.ibm.director.la.util;uses:=”org.osgi.framework”<br>Bundle-ClassPath: lib/junit.jar</p>
+<hr>
+<p>MANIFEST.MF 文件存储的实际上是 Bundle 的元数据。</p>
 <p>元数据的内容可以精确的定义 Bundle 的各种特征，同时能更好的对 Bundle 进行标识同时帮助用户对Bundle进行理解。</p>
 <h3 id="生命周期层"><a href="#生命周期层" class="headerlink" title="生命周期层"></a>生命周期层</h3><p>生命周期层在OSGi框架中属于模块层上面的一层，它的运作是建立在模块层的功能之上的。<br>生命周期层的主要功能是控制动态安装、开启、关闭、更新和卸载的bundles。<br>生命周期层让你能够从外部管理应用或者建立能够自我管理的应用（或者两者的结合），并且给了应用本身很大的动态性。 </p>
 <p>前面已经了解了 Bundle 的概念和作用。但是要真正使用 Bundle，需要使用生命周期层的API，来和OSGi框架的生命周期层进行交互。</p>
@@ -429,10 +430,10 @@ OSGi 框架 模块层  * Bundle  * 如何定义Bundle
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -449,7 +450,7 @@ OSGi 框架 模块层  * Bundle  * 如何定义Bundle
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">9</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -459,7 +460,7 @@ OSGi 框架 模块层  * Bundle  * 如何定义Bundle
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -487,7 +488,7 @@ OSGi 框架 模块层  * Bundle  * 如何定义Bundle
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSGi框架"><span class="nav-number">3.</span> <span class="nav-text">OSGi框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模块层"><span class="nav-number">3.1.</span> <span class="nav-text">模块层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bundle-ClassPath-lib-junit-jar"><span class="nav-number">4.</span> <span class="nav-text">Bundle-ClassPath: lib/junit.jar</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#生命周期层"><span class="nav-number">4.1.</span> <span class="nav-text">生命周期层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务层"><span class="nav-number">4.2.</span> <span class="nav-text">服务层</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSGi框架"><span class="nav-number">3.</span> <span class="nav-text">OSGi框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模块层"><span class="nav-number">3.1.</span> <span class="nav-text">模块层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生命周期层"><span class="nav-number">3.2.</span> <span class="nav-text">生命周期层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务层"><span class="nav-number">3.3.</span> <span class="nav-text">服务层</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -514,7 +515,7 @@ OSGi 框架 模块层  * Bundle  * 如何定义Bundle
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="http://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
